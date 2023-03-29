@@ -25,6 +25,5 @@ def dig_pow(n, p):
     return int(new/n) if new % n == 0 else -1
 
 
-# test
 print(dig_pow(92, 1) == -1)
 print(dig_pow(46288, 3) == 51)
