@@ -1,1 +1,1 @@
-"# CodeWars-Python-Codes" 
+This repo includes some of my completed __CodeWars__ challenges
