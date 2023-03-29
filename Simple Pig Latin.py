@@ -1,29 +1,19 @@
-#!/usr/bin/env python
-# coding: utf-8
+"""
+Move the first letter of each word to the end of it, then add "ay" to
+the end of the word. Leave punctuation marks untouched.
 
-# In[ ]:
+Examples
+pig_it('Pig latin is cool') == igPay atinlay siay oolcay
+pig_it('Hello world !')     == elloHay orldway !
 
-
-from string import punctuation as pt
+"""
 
 def pig_it(text):
+    from string import punctuation as pt
+
     return " ".join([x if x in pt else (x[1:] + x[0] + "ay") for x in text.split(" ")])
 
 
-# In[ ]:
+print(pig_it('Hello world !') == "elloHay orldway !")
 
-
-pig_it('Hello world !')     # elloHay orldway !
-
-
-# In[ ]:
-
-
-pig_it('Pig latin is cool')    # 'igPay atinlay siay oolcay'
-
-
-# In[ ]:
-
-
-
-
+print(pig_it('Pig latin is cool') == 'igPay atinlay siay oolcay')

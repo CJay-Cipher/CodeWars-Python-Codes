@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[6]:
-
-
 """
 Complete the solution so that it strips all text that follows any of a set of comment
 markers passed in. Any whitespace at the end of the line should also be stripped out.
@@ -25,54 +19,37 @@ The code would be called like so:
 result = solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"])
 # result should == "apples, pears\ngrapes\nbananas"
 """
-print()
 
-
-# In[252]:
-
-
-def strip_comments(strng, markers):
-    strng = strng.split("\n")
-    for x in range(len(strng)):
+# My code
+def strip_comments(input_str, markers):
+    input_str = input_str.split("\n")
+    for x in range(len(input_str)):
         var = ""
-        for y in strng[x]:
+        for y in input_str[x]:
             if y in markers:
                 break
             var += y
-        strng[x] = var.rstrip()
-    return "\n".join(strng)
-            
-strip_comments("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]) == "apples, pears\ngrapes\nbananas"
+        input_str[x] = var.rstrip()
+    return "\n".join(input_str)
 
 
-# In[1]:
-
+ans = strip_comments("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"])
+print(ans == "apples, pears\ngrapes\nbananas")
 
 # ChatGPT code
-
-def solution(input_str, markers):
+def solution1(input_str, markers):
     lines = input_str.split('\n')  # split input string into lines
     for i in range(len(lines)):
         for marker in markers:
             if marker in lines[i]:
-                lines[i] = lines[i].split(marker)[0].rstrip()  # strip text after the marker and any whitespace at the end
+                lines[i] = lines[i].split(marker)[0].rstrip()  # strip text after the marker and whitespace at the end
     return '\n'.join(lines)  # join lines back together with newline characters
 
 
-# In[4]:
-
-
-# solution('a #b\nc\nd $e f g', ['#', '$']) == 'a\nc\nd'
-# solution("\n", []) == "\n"
-solution(' a #b\nc\nd $e f g', ['#', '$']) #== ' a\nc\nd'
-
-
-# In[8]:
-
+print(solution1(' a #b\nc\nd $e f g', ['#', '$']) == ' a\nc\nd')
 
 # Trust code
-
-def solution(sentence: str, markers: list):
+def solution2(sentence: str, markers: list):
     sentence = sentence.splitlines()
     for i in range(len(sentence)):
         for marker in markers:
@@ -83,14 +60,7 @@ def solution(sentence: str, markers: list):
     return "\n".join(sentence)
 
 
-# In[9]:
+print(solution2(' a #b\nc\nd $e f g', ['#', '$']) == ' a\nc\nd')
 
-
-solution(' a #b\nc\nd $e f g', ['#', '$']) == ' a\nc\nd'
-
-
-# In[ ]:
-
-
-
-
+# solution('a #b\nc\nd $e f g', ['#', '$']) == 'a\nc\nd'
+# solution("\n", []) == "\n"

@@ -16,4 +16,4 @@ def descending_order(num):
     return int("".join(sorted(str(num), reverse=True)))
 
 
-print(descending_order(1234526789))
+print(descending_order(1234526789) == 9876543221)

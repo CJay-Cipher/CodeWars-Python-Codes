@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[38]:
-
-
 """
 The marketing team is spending way too much time typing in hashtags.
 Let's help them with our own Hashtag Generator!
@@ -23,11 +17,6 @@ Examples
 def generate_hashtag(s):
     return "#"+s.title().replace(" ", "") if 140 > len(s.strip()) > 0 else False
 
-generate_hashtag("  Hello     World   ")   
 
-
-# In[ ]:
-
-
-
-
+print(generate_hashtag("  Hello     World   ") == "#HelloWorld")
+print(generate_hashtag("") is False)
